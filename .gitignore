@@ -2,3 +2,4 @@ bin/
 obj/
 .vs/
 OrnaUtils.Tests/
+*.user
