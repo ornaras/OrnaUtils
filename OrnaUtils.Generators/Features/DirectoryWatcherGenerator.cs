@@ -27,6 +27,12 @@ namespace OrnaUtils.Generators.Features
                         if(path is null) throw new ArgumentNullException("path");
                         parts.AddRange(path.Split(Path.DirectorySeparatorChar));
                     }
+                        
+
+                    public DirectoryWatcher(DirectoryWatcher source)
+                    {
+                        parts.AddRange(source.parts);
+                    }
 
                     public DirectoryWatcher Add(params string[] parts)
                     {
