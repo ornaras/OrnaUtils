@@ -70,6 +70,7 @@ namespace OrnaUtils.Generators
                         public event PropertyChangedEventHandler? PropertyChanged;
                         public void OnPropertyChanged(string propertyName) =>
                             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+
                 """);
 
             foreach (var (field, propertyName, props) in fields)
@@ -77,7 +78,7 @@ namespace OrnaUtils.Generators
                 var fieldType = field.Type.ToDisplayString();
                 var fieldName = field.Name;
                 sb.AppendLine($$"""
-                    public {{fieldType}} {{propertyName}}
+                            public {{fieldType}} {{propertyName}}
                             {
                                 get => {{fieldName}};
                                 set
