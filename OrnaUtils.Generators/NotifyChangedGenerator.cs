@@ -32,9 +32,9 @@ namespace OrnaUtils.Generators
             {
                 var symbol = context.SemanticModel.GetDeclaredSymbol(variable);
                 if (symbol is IFieldSymbol fieldSymbol &&
-                    fieldSymbol.GetAttributes().Any(ad => ad.AttributeClass?.ToDisplayString() == "OrnaLibs.Attributes.NotifyChangedAttribute"))
+                    fieldSymbol.GetAttributes().Any(ad => ad.AttributeClass?.ToDisplayString() == "OrnaUtils.Attributes.NotifyChangedAttribute"))
                 {
-                    var attr = fieldSymbol.GetAttributes().First(ad => ad.AttributeClass?.ToDisplayString() == "OrnaLibs.Attributes.NotifyChangedAttribute");
+                    var attr = fieldSymbol.GetAttributes().First(ad => ad.AttributeClass?.ToDisplayString() == "OrnaUtils.Attributes.NotifyChangedAttribute");
                     string propertyName = ToPascalCase(variable.Identifier.Text);
                     return (fieldSymbol, propertyName, attr.ConstructorArguments[0].Values.Select(v => v.Value).Cast<string>().ToArray());
                 }

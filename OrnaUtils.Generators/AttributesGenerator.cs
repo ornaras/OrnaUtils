@@ -9,7 +9,9 @@ namespace OrnaUtils.Generators
         {
             context.RegisterPostInitializationOutput(ctx => 
                 ctx.AddSource("Attributes.g.cs", $$"""
-                    namespace OrnaLibs.Attributes
+                    using System;
+
+                    namespace OrnaUtils.Attributes
                     {
                         {{NotifyChangedAttribute}}
                     }
